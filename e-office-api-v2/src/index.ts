@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { config } from "./config.ts";
 import { Prisma } from "@backend/db/index.ts";
 import { app } from "./server.ts";
