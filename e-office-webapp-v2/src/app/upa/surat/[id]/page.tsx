@@ -542,7 +542,7 @@ export default function UpaReviewSurat() {
                             <p className="mb-4">Pemohon,</p>
                             <div className="inline-block mb-2">
                               <Image
-                                src="/tandatanganmahasiswa-removebg-preview.png"
+                                src="/persuratan-skl/tandatanganmahasiswa-removebg-preview.png"
                                 alt="Tanda Tangan Mahasiswa"
                                 width={100}
                                 height={60}

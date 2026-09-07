@@ -71,8 +71,8 @@ export default function LoginPageContent() {
     };
 
     const handleSSOLogin = () => {
-        // TODO: Implement SSO login
-        window.location.href = `${API_URL}/api/auth/sso`;
+        const clientId = process.env.NEXT_PUBLIC_SSO_CLIENT_ID || 'b2ce9f5d-a22c-4050-8393-3ab2e1a51127';
+        window.location.href = `https://apps-fsm.undip.ac.id/sso?clientId=${clientId}`;
     };
 
     return (

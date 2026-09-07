@@ -67,7 +67,7 @@ export default function AppHeader({ showNavigation = true, greetingOnly = false 
     <header className="text-white px-6 py-4 flex items-center justify-between fixed top-0 left-0 right-0 shadow-sm" style={{ zIndex: 1000, height: '64px', background: 'linear-gradient(135deg, #0079BD 0%, #005A8D 100%)' }}>
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-xl p-1.5 backdrop-blur-sm border border-white/10 hover:bg-white/20 transition-all cursor-pointer">
-          <img src="/logoundipwhite.png" alt="Logo UNDIP" className="w-full h-full object-contain" />
+          <img src="/persuratan-skl/logoundipwhite.png" alt="Logo UNDIP" className="w-full h-full object-contain" />
         </div>
         <div className="hidden sm:block">
           <div className="text-[10px] uppercase tracking-wider font-medium opacity-80 leading-tight">Fakultas</div>

@@ -6,12 +6,14 @@ import { Elysia } from "elysia";
 import { autoload } from "elysia-autoload";
 import env from "env-var";
 
+
 console.log("--- SERVER INITIALIZED ---");
 
 export const app = new Elysia()
 	.use(swagger())
 	.use(
 		cors({
+
 			origin: ["http://localhost:3000", "http://localhost:3001", "http://10.137.58.124:20051", "https://apps-fsm.undip.ac.id"],
 			methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
 			credentials: true,
@@ -29,18 +31,19 @@ export const app = new Elysia()
 		}),
 	)
 	.all("/api/auth/*", async (ctx) => {
+		console.log("INCOMING AUTH REQUEST Catch-all:", ctx.request.url);
 		const url = new URL(ctx.request.url);
-		const betterAuthUrl = (process.env.BETTER_AUTH_URL || "https://apps-fsm.undip.ac.id/persuratan-skl-api").replace(/\/$/, "");
-		const routePath = url.pathname.replace("/api/auth", "") || "/";
-		const rewrittenUrl = betterAuthUrl + routePath + url.search;
-		console.log(`[Auth] ${url.pathname} -> ${rewrittenUrl}`);
+		const publicBase = new URL(process.env.BETTER_AUTH_URL || 'https://apps-fsm.undip.ac.id/persuratan-skl-api');
+
+		const rewrittenUrl = publicBase.origin + url.pathname + url.search;
+		console.log(`[DEBUG] Auth Rewrite: ${ctx.request.url} -> ${rewrittenUrl}`);
 
 		const newReq = new Request(rewrittenUrl, {
 			method: ctx.request.method,
 			headers: ctx.request.headers,
 			body: ctx.request.body,
-			// @ts-ignore
-			duplex: "half"
+			// @ts-ignore - Bun-specific or internal Request properties
+			duplex: 'half'
 		});
 
 		return auth.handler(newReq);

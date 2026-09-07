@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  basePath: '/persuratan-skl',
+  trailingSlash: true,
   images: {
     remotePatterns: [
       {

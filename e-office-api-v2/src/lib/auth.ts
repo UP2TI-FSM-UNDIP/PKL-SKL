@@ -19,7 +19,10 @@ export const auth = betterAuth({
 		enabled: true,
 	},
 	basePath: "/api/auth",
-	trustedOrigins: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3079"],
+	trustedOrigins: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3079", "https://apps-fsm.undip.ac.id"],
+    advanced: {
+        cookiePrefix: "persuratan-skl",
+    },
 	plugins: [
 		anonymous(),
 		bearer(),

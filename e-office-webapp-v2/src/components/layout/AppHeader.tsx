@@ -116,7 +116,7 @@ export default function AppHeader() {
     <header className="text-white px-6 py-4 flex items-center justify-between" style={{ background: '#0079BD' }}>
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 flex items-center justify-center">
-          <img src="/logoundipwhite.png" alt="Logo UNDIP" className="w-full h-full object-contain" />
+          <img src="/persuratan-skl/logoundipwhite.png" alt="Logo UNDIP" className="w-full h-full object-contain" />
         </div>
         <div>
           <div className="text-xs opacity-75">Fakultas</div>
